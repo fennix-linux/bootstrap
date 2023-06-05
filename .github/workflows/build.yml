@@ -1,0 +1,24 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install curl libarchive-tools make git -y
+
+      - name: compile
+        run: | 
+          cd "$GITHUB_WORKSPACE"/jinx
+          make
+          ./jinx build-all
+
+      - name: create sysroot
+        run: | 
+          cd "$GITHUB_WORKSPACE"/jinx
+          ./jinx sysroot
+          ls -la sysroot
