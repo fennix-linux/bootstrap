@@ -1,0 +1,16 @@
+name=linux-headers
+from_source=linux
+revision=1
+imagedeps="gcc make rsync"
+
+configure() {
+    cp -a "${source_dir}/." ./
+}
+
+build() {
+    true
+}
+
+install() {
+    make headers_install INSTALL_HDR_PATH="${dest_dir}/usr/"
+}

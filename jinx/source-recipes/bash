@@ -1,0 +1,8 @@
+name=bash
+version=5.2.15
+tarball_url="https://ftp.gnu.org/gnu/bash/bash-${version}.tar.gz"
+tarball_sha512="08a67f6da4af7a75ff2b2d5a9eb8fc46d8c6e9ae80ccaf73b51736d6609916861b1f3fced938ce3ea16d014edb324e1a3d8e03f4917f68dc56ffb665316f26c7"
+
+regenerate() {
+    true
+}

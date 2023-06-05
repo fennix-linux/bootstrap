@@ -1,0 +1,8 @@
+name=binutils
+version=2.40
+tarball_url="https://ftp.gnu.org/gnu/binutils/binutils-${version}.tar.xz"
+tarball_sha512="a37e042523bc46494d99d5637c3f3d8f9956d9477b748b3b1f6d7dfbb8d968ed52c932e88a4e946c6f77b8f48f1e1b360ca54c3d298f17193f3b4963472f6925"
+
+regenerate() {
+    true
+}

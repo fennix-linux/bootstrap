@@ -1,0 +1,10 @@
+.vscode/
+
+.jinx-cache/
+sources/
+builds/
+host-builds/
+pkgs/
+host-pkgs/
+sysroot/
+jinx

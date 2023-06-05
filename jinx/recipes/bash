@@ -1,0 +1,21 @@
+name=bash
+from_source=bash
+revision=1
+hostdeps="cross-gcc2"
+deps="glibc"
+
+configure() {
+    ${source_dir}/configure \
+        --host="${FENNIX_TGT}" \
+        --prefix=/usr \
+        --without-bash-malloc \
+        --disable-nls
+}
+
+build() {
+    make -j${parallelism}
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install
+}

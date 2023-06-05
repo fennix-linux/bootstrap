@@ -1,0 +1,36 @@
+name=cross-gcc1
+from_source=gcc
+revision=1
+imagedeps="gcc base-devel"
+hostrundeps="cross-binutils"
+
+configure() {
+    "${source_dir}"/configure \
+        --target="${FENNIX_TGT}" \
+        --prefix="${prefix}" \
+        --with-sysroot="${sysroot_dir}" \
+        --disable-werror \
+        --with-newlib \
+        --without-headers \
+        --enable-default-pie \
+        --enable-default-ssp \
+        --disable-nls \
+        --disable-shared \
+        --disable-multilib \
+        --disable-threads \
+        --disable-libatomic \
+        --disable-libgomp \
+        --disable-libquadmath \
+        --disable-libssp \
+        --disable-libvtv \
+        --disable-libstdcxx \
+        --enable-languages=c,c++
+}
+
+build() {
+    make -j${parallelism} all-gcc all-target-libgcc
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install-gcc install-target-libgcc
+}

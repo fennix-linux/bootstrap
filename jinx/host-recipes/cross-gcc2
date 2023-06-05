@@ -1,0 +1,28 @@
+name=cross-gcc2
+from_source=gcc
+revision=1
+imagedeps="gcc"
+hostdeps="cross-gcc1"
+hostrundeps="cross-binutils"
+deps="glibc"
+
+configure() {
+    "${source_dir}"/configure \
+        --target="${FENNIX_TGT}" \
+        --prefix="${prefix}" \
+        --with-sysroot="${sysroot_dir}" \
+        --disable-werror \
+        --enable-languages=c,c++ \
+        --enable-default-pie \
+        --enable-default-ssp \
+        --disable-multilib \
+        --disable-bootstrap
+}
+
+build() {
+    make -j${parallelism} all-gcc all-target-libgcc
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install-gcc install-target-libgcc
+}

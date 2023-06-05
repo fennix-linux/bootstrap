@@ -1,0 +1,29 @@
+name=base-files
+from_source=base-files
+revision=1
+
+configure() {
+    true
+}
+
+build() {
+    true
+}
+
+install() {
+    cd "${dest_dir}"
+    cp -r "${source_dir}/." ./
+    # FHS stuff
+    mkdir -p \
+            root
+    mkdir -p \
+            boot dev opt home mnt tmp \
+            etc/opt \
+            usr/bin usr/sbin usr/lib usr/local usr/share usr/src \
+            var/log var/cache var/lib var/lock var/mail
+    # symlinks
+    ln -s usr/bin bin
+    ln -s usr/sbin sbin
+    ln -s usr/lib lib
+    ln -s usr/lib lib64
+}

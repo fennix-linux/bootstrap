@@ -1,0 +1,26 @@
+name=glibc
+from_source=glibc
+revision=1
+hostdeps="cross-gcc1"
+deps="linux-headers"
+
+configure() {
+    echo "rootsbindir=/usr/sbin" > configparms
+    "${source_dir}"/configure \
+            --build="x86_64-pc-linux-gnu" \
+            --host="${FENNIX_TGT}" \
+            --prefix="/usr" \
+            --disable-werror \
+            --enable-kernel=3.2 \
+            --enable-stack-protector=strong \
+            --with-headers="${sysroot_dir}/usr/include" \
+            libc_cv_slibdir=/usr/lib
+}
+
+build() {
+    make -j${parallelism}
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install
+}

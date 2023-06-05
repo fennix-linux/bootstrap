@@ -1,0 +1,8 @@
+name=glibc
+version=2.37
+tarball_url="https://ftp.gnu.org/gnu/glibc/glibc-${version}.tar.xz"
+tarball_sha512="4fc5932f206bb1b8b54828a28af1a681616b838bbab60c81c82155f3629cbfe1301d271af65511ed917f4c6949a025429221fe6035753282f15346919f15b90c"
+
+regenerate() {
+    true
+}

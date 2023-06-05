@@ -1,0 +1,23 @@
+name=cross-binutils
+from_source=binutils
+revision=1
+imagedeps="gcc"
+
+configure() {
+    "${source_dir}"/configure \
+        --prefix="${prefix}" \
+        --with-sysroot="${sysroot_dir}" \
+        --target="${FENNIX_TGT}" \
+        --disable-nls \
+        --enable-gprofng=no \
+        --disable-werror
+}
+
+build() {
+    make -j${parallelism}
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install
+    rm -vf "${dest_dir}/${prefix}"/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.{a,la}
+}
