@@ -1,0 +1,23 @@
+name=coreutils
+from_source=coreutils
+revision=1
+hostdeps="cross-gcc2"
+deps="glibc"
+
+configure() {
+    cp -a "${source_dir}"/. ./
+
+    ./configure \
+        --host="${FENNIX_TGT}" \
+        --prefix=/usr \
+        --disable-nls \
+        --enable-no-install-program=kill,uptime
+}
+
+build() {
+    make -j${parallelism}
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install
+}

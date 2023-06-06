@@ -1,0 +1,17 @@
+name=neofetch
+revision=1
+from_source=neofetch
+deps="bash coreutils"
+
+configure() {
+	true
+}
+
+build() {
+	true
+}
+
+install() {
+	mkdir -p "${dest_dir}"/usr/bin
+	cp "${source_dir}"/neofetch "${dest_dir}"/usr/bin/neofetch
+}
