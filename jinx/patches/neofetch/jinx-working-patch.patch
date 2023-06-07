@@ -1,0 +1,56 @@
+diff --git neofetch-clean/neofetch neofetch-workdir/neofetch
+index 1e4b564..a5cadf3 100755
+--- neofetch-clean/neofetch
++++ neofetch-workdir/neofetch
+@@ -780,7 +780,7 @@ image_source="auto"
+ #       Chapeau, Chrom*, Cleanjaro, ClearOS, Clear_Linux, Clover,
+ #       Condres, Container_Linux, CRUX, Cucumber, Debian, Deepin,
+ #       DesaOS, Devuan, DracOS, DarkOs, DragonFly, Drauger, Elementary,
+-#       EndeavourOS, Endless, EuroLinux, Exherbo, Fedora, Feren, FreeBSD,
++#       EndeavourOS, Endless, EuroLinux, Exherbo, Fedora, Fennix, Feren, FreeBSD,
+ #       FreeMiNT, Frugalware, Funtoo, GalliumOS, Garuda, Gentoo, Pentoo,
+ #       gNewSense, GNOME, GNU, GoboLinux, Grombyang, Guix, Haiku, Huayra,
+ #       Hyperbola, janus, Kali, KaOS, KDE_neon, Kibojoe, Kogaion,
+@@ -4923,7 +4923,7 @@ ASCII:
+                                 Chrom, Cleanjaro, ClearOS, Clear_Linux, Clover, Condres,
+                                 Container_Linux, CRUX, Cucumber, Debian, Deepin, DesaOS, Devuan,
+                                 DracOS, DarkOs, DragonFly, Drauger, Elementary, EndeavourOS, Endless,
+-                                EuroLinux, Exherbo, Fedora, Feren, FreeBSD, FreeMiNT, Frugalware,
++                                EuroLinux, Exherbo, Fedora, Fennix, Feren, FreeBSD, FreeMiNT, Frugalware,
+                                 Funtoo, GalliumOS, Garuda, Gentoo, Pentoo, gNewSense, GNOME, GNU,
+                                 GoboLinux, Grombyang, Guix, Haiku, Huayra, Hyperbola, janus, Kali,
+                                 KaOS, KDE_neon, Kibojoe, Kogaion, Korora, KSLinux, Kubuntu, LEDE,
+@@ -6965,6 +6965,33 @@ ${c1}          /:-------------:\\
+ EOF
+         ;;
+ 
++        "Fennix"*)
++            set_colors 202
++            read -rd '' ascii_data <<'EOF'
++${c1}
++                           ........               
++                     ...::..     .......          
++    .............:::....              ..::.       
++.:..:::........:::..              :.....  .::::.::
++:::. .:-:.....                     ....        .-.
++   .:::::..                                   :-. 
++      .:::::::::::::.                      .::.   
++         .:::...::::::                  .::.      
++            .:.....  -:               .-:.        
++                     .=              --           
++                    .=:            .:=            
++                   :=.            :=--            
++                  --              ----            
++                :=:               =:=:            
++              :=:                 =:=.            
++            :--                  :=:=             
++          :--.                   +:+.             
++        :=-                     =-=:              
++     .--:                     :===:               
++   :=-.                      .-==.                
++EOF
++        ;;
++
+         "Feren"*)
+             set_colors 4 7 1
+             read -rd '' ascii_data <<'EOF'

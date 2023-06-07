@@ -1,0 +1,32 @@
+name=gcc
+from_source=gcc
+revision=1
+imagedeps="gcc"
+hostdeps="cross-gcc2"
+deps="glibc binutils zlib"
+
+configure() {
+    "${source_dir}"/configure \
+            --build="x86_64-pc-linux-gnu" \
+            --host="${FENNIX_TGT}" \
+            --target="${FENNIX_TGT}" \
+            --with-sysroot="/" \
+            --with-build-sysroot="${sysroot_dir}" \
+            --prefix="/usr" \
+            --enable-languages=c,c++ \
+            --enable-default-pie \
+            --enable-default-ssp \
+            --disable-multilib \
+            --disable-bootstrap \
+            --enable-shared \
+            --enable-host-shared \
+            --with-system-zlib
+}
+
+build() {
+    make -j${parallelism}
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install
+}

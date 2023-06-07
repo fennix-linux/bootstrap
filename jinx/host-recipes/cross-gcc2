@@ -20,9 +20,9 @@ configure() {
 }
 
 build() {
-    make -j${parallelism} all-gcc all-target-libgcc
+    make -j${parallelism} all-gcc all-target-libgcc all-target-libstdc++-v3
 }
 
 install() {
-    make DESTDIR="${dest_dir}" install-gcc install-target-libgcc
+    make DESTDIR="${dest_dir}" install-gcc install-target-libgcc install-target-libstdc++-v3
 }

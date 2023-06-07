@@ -1,0 +1,31 @@
+name=binutils
+from_source=binutils
+revision=1
+imagedeps="gcc"
+hostdeps="cross-gcc2"
+deps="glibc"
+
+configure() {
+    "${source_dir}"/configure \
+            --build="x86_64-pc-linux-gnu" \
+            --host="${FENNIX_TGT}" \
+            --target="${FENNIX_TGT}" \
+            --with-sysroot="/" \
+            --with-build-sysroot="${sysroot_dir}" \
+            --prefix="/usr" \
+            --sysconfdir=/etc \
+            --enable-ld=default \
+            --enable-shared \
+            --disable-werror \
+            --enable-64-bit-bfd \
+            --enable-gprofng=no \
+            --disable-nls
+}
+
+build() {
+    make -j1
+}
+
+install() {
+    make DESTDIR="${dest_dir}" install
+}
